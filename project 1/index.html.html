@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Catering System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <center>
+  <!-- Optional overlay for better text visibility -->
+  <div class="background-overlay"></div>
+  <body style="background-image: url('https://example.com/south-indian-thali.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+
+ 
+  
+    <!-- Authentication Section -->
+    
+    <section id="auth-section">
+      <center>
+      <h1>WELCOME !!!</h1>
+      <h2>Login or Register</h2>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <div>
+        <button onclick="login()">Login</button>
+        <button onclick="register()">Register</button>
+      </div>
+    </center>
+    </section>
+  
+
+    <!-- Profile Section -->
+    <section id="profile-section" style="display: none;">
+      <h2>Welcome!</h2>
+      <button onclick="logout()">Logout</button>
+    </section>
+
+    <!-- Product Listing -->
+    <section id="view-products" style="display: none;">
+      <h3>Available Products</h3>
+      <ul id="product-list"></ul>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart-section" style="display: none;">
+      <h3>Add to Cart</h3>
+      <div>
+        <select id="item-name"></select>
+        <input type="number" id="item-qty" placeholder="Quantity" min="1">
+        <button class="round-btn" onclick="addToCart()">+</button>
+      </div>
+
+      <h3>Your Cart</h3>
+      <button class="view-cart-btn" onclick="toggleCartList()">🛒 View Cart</button>
+      <ul id="cart-list" style="display: none;"></ul>
+      <p id="total-amount" style="font-weight: bold; margin-top: 10px;"></p>
+
+      <h3>Customer Info</h3>
+      <input type="text" id="customer-name" placeholder="Your Name" required>
+      <input type="text" id="customer-address" placeholder="Delivery Address" required>
+      <button onclick="placeOrder()">Place Order</button>
+    </section>
+
+    <div id="toast"></div>
+
+  </center>
+
+  <script src="script.js"></script>
+</body>
+</html>
